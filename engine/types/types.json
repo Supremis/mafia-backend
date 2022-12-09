@@ -1,0 +1,69 @@
+{
+    "roles": {
+        "Villager": {
+            "alignment": "Town",
+            "meetings": ["Town"],
+            "ability": null,
+            "required_votes": []
+        },
+        "Cop": {
+            "alignment": "Town",
+            "meetings": ["Town"],
+            "ability": {
+                "type": "investigate",
+                "target": "rest"
+            },
+            "required_votes": ["cop_investigate"]
+        },
+        "Gunsmith": {
+            "alignment": "Town",
+            "meetings": ["Town"],
+            "ability": {
+                "type": "arm",
+                "target": "rest"
+            },
+            "required_votes": ["gunsmith_arm"]
+        },
+        "Mafia": {
+            "alignment": "Mafia",
+            "meetings": ["Town", "Mafia"],
+            "ability": null,
+            "required_votes": ["mafia_kill"]
+        },
+        "Roleblocker": {
+            "alignment": "Mafia",
+            "meetings": ["Town", "Mafia"],
+            "ability": {
+                "type": "disable",
+                "target": "rest"
+            },
+            "required_votes": ["mafia_kill", "rb_block"]
+        }
+    },
+    "phases": {
+        "Day": {
+            "time": 3e5
+        },
+        "Night": {
+            "time": 6e4
+        }
+    },
+    "meetings": {
+        "Town": {
+            "vote": true,
+            "result": "kill",
+            "target": "all"
+        },
+        "Mafia": {
+            "vote": true,
+            "result": "kill",
+            "target": "all"
+        }
+    },
+    "items": {
+        "Gun": {
+            "anonymous": 0.5,
+            "effect": "kill"
+        }
+    }
+}
